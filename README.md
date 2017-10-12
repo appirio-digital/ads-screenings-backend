@@ -8,7 +8,7 @@ Welcome! This repository will serve as a technical screening ahead of your inter
 
 1. Fork this repo
 1. In your newly forked repo, initialize a new Node.js project
-1. Create a RESTful Web API using the web framework and database/ORM of your choice that fulfills the fulfills the specifications below
+1. Create a RESTful Web API using the web framework and database/ORM of your choice that fulfills the specifications below
 1. Create a Pull Request back to this repo with a summary of your solution.  Highlight libraries chosen, techniques used, and future considerations.
 
 ## Route Specifications
