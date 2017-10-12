@@ -2,7 +2,7 @@
 
 ## Overview
 
-Welcome! This repository will serve as a technical screening ahead of your interviews for Appirio Digital Studios. Please follow the instructions below.  This exercise should take about an hour to complete.
+Welcome! This repository will serve as a technical screening ahead of your interviews for Appirio Digital Studios. Please follow the instructions below.  This exercise should take 1-2 hours to complete.
 
 ## Instructions
 
