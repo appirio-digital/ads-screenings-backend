@@ -4,8 +4,8 @@
   "description": "Welcome! This repository will serve as a technical screening ahead of your interviews for Appirio Digital Studios. Please follow the instructions below.  This exercise should take 1-2 hours to complete.",
   "main": "index.js",
   "scripts": {
-    "start": "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
+    //"test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
