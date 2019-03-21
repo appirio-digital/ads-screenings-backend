@@ -4,9 +4,10 @@
   "description": "Welcome! This repository will serve as a technical screening ahead of your interviews for Appirio Digital Studios. Please follow the instructions below.  This exercise should take 1-2 hours to complete.",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
-   },
-  "repository": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+   "repository": {
     "type": "git",
     "url": "git+https://github.com/nishantlnmiit/ads-screenings-backend.git"
   },
@@ -20,6 +21,10 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
-    "jsonwebtoken": "^8.5.1"
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^3.1.13",
+    "mongoose": "^5.4.19",
+    "mysql": "^2.16.0",
+    "nodemon": "^1.18.10"
   }
 }
