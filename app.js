@@ -15,5 +15,5 @@ mongoose.connect(config.mongodbPath)
 
 app.use(bodyParser.json())
 app.use('/api', user)
-app.listen(process.env.port || 3000 ,'0.0.0.0');
+app.listen(process.env.port ,'0.0.0.0');
  

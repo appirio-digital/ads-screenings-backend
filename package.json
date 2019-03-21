@@ -4,7 +4,7 @@
   "description": "Welcome! This repository will serve as a technical screening ahead of your interviews for Appirio Digital Studios. Please follow the instructions below.  This exercise should take 1-2 hours to complete.",
   "main": "app.js",
   "scripts": {
-    "start": "PORT=4000 HOST=0.0.0.0 ENV_SILENT=true node app.js",
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
