@@ -2,6 +2,7 @@
      "port": 3000,
      "tokenLife" : 150,
      "refreshTokenLife" : 240,
-     "secret": "some-secret-shit-goes-here",
-     "refreshTokenSecret": "some-secret-refresh-token-shit"
+     "secret": "appirio-token",
+     "refreshTokenSecret": "appirio-refresh-token" ,
+     "mongodbPath" : "mongodb://admin:jAWxzp0B03Qc1A6c@SG-Democheck-19647.servers.mongodirector.com:48038,SG-Democheck-19648.servers.mongodirector.com:48038,SG-Democheck-19649.servers.mongodirector.com:48038/admin?replicaSet=RS-Democheck-0&ssl=true"
 }
