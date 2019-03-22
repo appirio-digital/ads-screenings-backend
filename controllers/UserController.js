@@ -5,11 +5,13 @@ const jwt = require('jsonwebtoken')
 
 
 exports.checkApi = function (req, res) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
     res.send('Hello World!');
 };
 
 
 exports.userRegistration =  async function (req, res) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
 	var userObject ={
 		"firstName" : req.body.first_name,
     "lastName" : req.body.last_name,
@@ -22,12 +24,13 @@ exports.userRegistration =  async function (req, res) {
 	   console.log(userObject);
      const { error } = validate(userObject);
      if (error) {
-         return res.status(400).send(error.details[0].message);
+
+         return res.status(400).json({"message" : error.details[0].message} );
      }
      // Check if this user already exisits
     let user =  await User.findOne({ email: req.body.email});
     if (user) {
-        return res.status(400).send('This user already exists!');
+        return res.status(400).json({"message" : 'This user already exists!'});
     } else {
         // Insert the new user if they do not exist 
         user = new User({
@@ -50,7 +53,7 @@ exports.userRegistration =  async function (req, res) {
 	   const token = jwt.sign(userJson, config.secret, { expiresIn: config.tokenLife})
      const refreshToken = jwt.sign(userJson, config.refreshTokenSecret, { expiresIn: config.refreshTokenLife})
      const response = {
-        "status": "User registerred successfully",
+        "message": "User registerred successfully",
         "token": token,
         "refreshToken": refreshToken,
         "email" : email ,
@@ -71,8 +74,9 @@ exports.userRegistration =  async function (req, res) {
 };
 
 exports.userLogin = async function (req, res) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
      if (!req.body.email || !req.body.password) {
-    	return res.status(400).send("You must send the email and the password for login");
+    	return res.status(400).json({"message" : "You must send the email and the password for login"});
   	}
 
 
@@ -85,7 +89,7 @@ exports.userLogin = async function (req, res) {
     const token = jwt.sign(userJson, config.secret, { expiresIn: config.tokenLife})
     const refreshToken = jwt.sign(userJson, config.refreshTokenSecret, { expiresIn: config.refreshTokenLife})
     const response = {
-        "status": "User Logged in successfully",
+        "message": "User Logged in successfully",
         "token": token,
         "refreshToken": refreshToken,
         }
@@ -102,7 +106,7 @@ exports.userLogin = async function (req, res) {
 		
   	}
   	else {
-		return res.status(400).send("This user doesn't exist!");
+		return res.status(400).send({message : "This user doesn't exist!"});
   	}
 
 
