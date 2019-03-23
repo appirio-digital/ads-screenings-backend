@@ -5,16 +5,17 @@ const jwt = require('jsonwebtoken')
 
 
 exports.checkApi = function (req, res) {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     res.send('Hello World!');
 };
 
 
 exports.userRegistration =  async function (req, res) {
-  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-	var userObject ={
+	
+  var userObject ={
 		"firstName" : req.body.first_name,
     "lastName" : req.body.last_name,
     "email" : req.body.email
@@ -76,7 +77,7 @@ exports.userRegistration =  async function (req, res) {
 };
 
 exports.userLogin = async function (req, res) {
-    res.setHeader('Access-Control-Allow-Origin', '*');
+   res.header("Access-Control-Allow-Origin", "*");
      res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
      if (!req.body.email || !req.body.password) {
     	return res.status(400).json({"message" : "You must send the email and the password for login"});
@@ -118,7 +119,7 @@ exports.userLogin = async function (req, res) {
 
 
 exports.userProfile =  function (req, res) {
-  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.header("Access-Control-Allow-Origin", "*");
      res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 	const token = req.headers['token'];
 
@@ -157,7 +158,7 @@ exports.userProfile =  function (req, res) {
 }
 
 exports.tokenGenerate = function (req, res) {
-     res.setHeader('Access-Control-Allow-Origin', '*');
+    res.header("Access-Control-Allow-Origin", "*");
      res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 	// refresh the damn token
     const postData = req.body
