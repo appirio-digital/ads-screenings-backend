@@ -1,8 +1,14 @@
+/**
+**   All the imports are here.
+**/
 const mongoose = require('mongoose');
 const Joi = require('joi');
 const Schema = mongoose.Schema;
 const crypto = require('crypto');
 
+/**
+**  Schema definition for user for mongodb.
+**/
 const UserSchema = new Schema({
     firstName: {type: String, required: true, minlength : 3 , maxlength: 40},
     lastName: {type: String, required: true, minlength : 3 , maxlength: 40},
@@ -13,6 +19,10 @@ const UserSchema = new Schema({
     salt : {type: String}  
 });
 
+
+/**
+**   Mongo user schema method defined , This will set hash and salt from password.
+**/
 UserSchema.methods.setPassword = function(password) { 
      
     // Creation of unique salt for user
@@ -21,18 +31,23 @@ UserSchema.methods.setPassword = function(password) {
     // hashing user's salt and password with 1000 iterations, 
     //64 length and sha512 digest 
     this.hash = crypto.pbkdf2Sync(password, this.salt,  
-    1000, 64, `sha512`).toString(`hex`); 
+    1000, 64, 'sha512').toString('hex'); 
 }; 
 
+/**
+**   Mongo user schema method defined , This will check whether a password exists or not.
+**/
 UserSchema.methods.validPassword = function(password) { 
     var hash = crypto.pbkdf2Sync(password,  
-    this.salt, 1000, 64, `sha512`).toString('hex'); 
+    this.salt, 1000, 64, 'sha512').toString('hex'); 
     return this.hash === hash; 
 }; 
 
 
  
-
+/**
+**  Creation of mongodb model through mongoose.
+**/
  
 const User = mongoose.model('User', UserSchema);
 
@@ -50,12 +65,7 @@ function validateUser(user) {
     return Joi.validate(user, schema);
 }
 
-
-
-
-
 // Export the model
-
 exports.User = User;
 exports.validate = validateUser;
  
