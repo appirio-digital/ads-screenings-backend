@@ -42,7 +42,7 @@ exports.userRegistration =  async function (req, res) {
      // Check if this user already exisits
     let user =  await User.findOne({ email: req.body.email});
     if (user) {
-        return res.status(400).json({"message" : 'This user already exists!' ,"status" : 0});
+        return res.status(200).json({"message" : 'This user already exists!' ,"status" : 0});
     } else {
         // Insert the new user if they do not exist 
         user = new User({
@@ -118,7 +118,7 @@ exports.userLogin = async function (req, res) {
     res.status(200).json(response);
             }
             else {
-               return res.status(400).send({ 
+               return res.status(200).send({ 
                     "message" : "Password doesn't match with email",
                     "status" : 0
                 }); 
@@ -127,7 +127,7 @@ exports.userLogin = async function (req, res) {
     
     }
     else {
-    return res.status(400).send({"message" : "This user doesn't exist!" , "status" : 0});
+    return res.status(200).send({"message" : "This user doesn't exist!" , "status" : 0});
     }
 
 
