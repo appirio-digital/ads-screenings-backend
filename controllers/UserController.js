@@ -144,7 +144,7 @@ exports.userLogin = async function (req, res) {
 
       res.status(200).json(response);
     } else {
-      return res.status(400).send({
+      return res.status(200).send({
         "message": "Password doesn't match with email",
         "status": 0
       });
@@ -152,7 +152,7 @@ exports.userLogin = async function (req, res) {
     }
 
   } else {
-    return res.status(400).send({
+    return res.status(200).send({
       "message": "This user doesn't exist!",
       "status": 0
     });
@@ -251,8 +251,8 @@ exports.tokenGenerate = function (req, res) {
 
       res.status(200).json(response);
       return res.status(200).json({
-        "error": false,
-        "message": 'Authorized.',
+        "status": 1,
+        "message": 'Authorized',
         "token": token
       });
     });
