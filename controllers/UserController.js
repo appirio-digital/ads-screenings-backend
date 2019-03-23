@@ -6,6 +6,7 @@ const jwt = require('jsonwebtoken')
 
 exports.checkApi = function (req, res) {
     res.header("Access-Control-Allow-Origin", "*");
+    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE')
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     res.send('Hello World!');
 };
@@ -13,6 +14,7 @@ exports.checkApi = function (req, res) {
 
 exports.userRegistration =  async function (req, res) {
   res.header("Access-Control-Allow-Origin", "*");
+  res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE')
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 	
   var userObject ={
@@ -78,7 +80,9 @@ exports.userRegistration =  async function (req, res) {
 
 exports.userLogin = async function (req, res) {
    res.header("Access-Control-Allow-Origin", "*");
-     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+   res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE')
+   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+      
      if (!req.body.email || !req.body.password) {
     	return res.status(400).json({"message" : "You must send the email and the password for login"});
   	}
@@ -106,7 +110,6 @@ exports.userLogin = async function (req, res) {
                 }); 
 
             }
-
 		
   	}
   	else {
@@ -120,7 +123,8 @@ exports.userLogin = async function (req, res) {
 
 exports.userProfile =  function (req, res) {
   res.header("Access-Control-Allow-Origin", "*");
-     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE')
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 	const token = req.headers['token'];
 
 	if (token) {
@@ -159,6 +163,7 @@ exports.userProfile =  function (req, res) {
 
 exports.tokenGenerate = function (req, res) {
     res.header("Access-Control-Allow-Origin", "*");
+    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE')
      res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 	// refresh the damn token
     const postData = req.body
