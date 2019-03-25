@@ -1,0 +1,30 @@
+{
+  "name": "ads-screenings-backend",
+  "version": "1.0.0",
+  "description": "Welcome! This repository will serve as a technical screening ahead of your interviews for Appirio Digital Studios. Please follow the instructions below.  This exercise should take 1-2 hours to complete.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nishantlnmiit/ads-screenings-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nishantlnmiit/ads-screenings-backend/issues"
+  },
+  "homepage": "https://github.com/nishantlnmiit/ads-screenings-backend#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "crypto": "^1.0.1",
+    "express": "^4.16.4",
+    "joi": "^14.3.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.4.19",
+    "nodemon": "^1.18.10"
+  }
+}
